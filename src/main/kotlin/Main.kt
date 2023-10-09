@@ -29,7 +29,7 @@ fun main() = application {
             after opening drag and drop screen, application will be frozen.
             AWT file picker work fine in this situation.
             This problem appears only after opening drag and drop window.
-            You have only open drag and drop screen to reproduce this bug
+            You have to only open drag and drop screen to reproduce this bug
          */
         Navigator(MainScreen())
     }
