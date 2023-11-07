@@ -42,17 +42,17 @@ class MainScreen: Screen{
         MaterialTheme {
             Row {
                 Button(onClick = {
-                    navigator.replace(MPFilePicker(navigator))
+                        navigator.replaceAll(MPFilePicker())
                 }) {
                     Text("Just a MP file picker ")
                 }
                 Button(onClick = {
-                    navigator.replaceAll(DragAndDrop(navigator))
+                    navigator.replaceAll(DragAndDrop())
                 }) {
                     Text("Just a drag and drop")
                 }
                 Button(onClick = {
-                    navigator.replaceAll(AWTFilePicker(navigator))
+                    navigator.replaceAll(AWTFilePicker())
                 }) {
                     Text("Just a awt file picker")
                 }
@@ -62,9 +62,10 @@ class MainScreen: Screen{
     }
 }
 
-data class MPFilePicker(val navigator: Navigator): Screen{
+class MPFilePicker: Screen{
     @Composable
     override fun Content() {
+        val navigator = LocalNavigator.currentOrThrow
         var text by remember { mutableStateOf("Nothing yet") }
         var isShown by remember { mutableStateOf(false) }
         Column {
@@ -87,12 +88,14 @@ data class MPFilePicker(val navigator: Navigator): Screen{
             isShown = false
             text = file?.path ?: "Something went wrong"
         }
+
     }
 }
 
-data class AWTFilePicker(val navigator: Navigator): Screen{
+class AWTFilePicker: Screen{
     @Composable
     override fun Content() {
+        val navigator = LocalNavigator.currentOrThrow
         val fileDialog = FileDialog(null as Frame?, "Choose a file")
         var text by remember { mutableStateOf("Nothing yet") }
         Column {
@@ -119,10 +122,11 @@ data class AWTFilePicker(val navigator: Navigator): Screen{
     }
 }
 
-data class DragAndDrop(val navigator: Navigator): Screen{
+class DragAndDrop: Screen{
     @OptIn(ExperimentalComposeUiApi::class)
     @Composable
     override fun Content() {
+        val navigator = LocalNavigator.currentOrThrow
         var text by remember { mutableStateOf("Nothing yet") }
         Column {
             Box(Modifier
