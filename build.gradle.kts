@@ -18,9 +18,9 @@ dependencies {
     implementation(compose.desktop.currentOs)
     implementation(compose.material3)
     implementation(compose.ui)
-    implementation("cafe.adriel.voyager:voyager-navigator:1.0.0-rc05")
-    implementation("cafe.adriel.voyager:voyager-transitions:1.0.0-rc05")
-    implementation("com.darkrockstudios:mpfilepicker:3.0.0")
+    implementation("cafe.adriel.voyager:voyager-navigator:1.0.0")
+    implementation("cafe.adriel.voyager:voyager-transitions:1.0.0")
+    implementation("com.darkrockstudios:mpfilepicker:3.1.0")
 }
 
 compose.desktop {
